@@ -1,0 +1,35 @@
+<table style="width:300px">
+  <th>
+     <td> 
+       Name
+     </td>
+     <td> 
+       start_date
+     </td>
+      <td> 
+       end_date 
+     </td>
+     <td>
+       Status
+     </td>
+  </th>
+   <tr>
+     <td> 
+      <%= Cat.find(@cat_rental_request.cat_id) %>
+     </td>
+     <td> 
+      <%= @cat_rental_request.start_date %>
+     </td>
+      <td> 
+        <%= @cat_rental_request.end_date %>
+     </td>
+     <td> 
+       <%= @cat_rental_request.status %>
+     </td>
+   </tr>
+</table>
+<%= link_to "Update Cat Rental Request", edit_cat_cat_rental_request_url(@cat_rental_request) %><br>
+
+<%= link_to "Back to Cat Rental List", cat_cat_rental_request_url(@cat_rental_request.cat_id) %>
+
+

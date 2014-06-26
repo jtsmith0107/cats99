@@ -1,0 +1,61 @@
+<table style="width:300px">
+  <th>
+     <td> 
+       Name
+     </td>
+     <td> 
+      Birth_date
+     </td>
+      <td> 
+        Color
+     </td>
+     <td> 
+       Age
+     </td>
+     <td> 
+       Sex
+     </td>
+   </th>
+   <tr>
+     <td> 
+      <%= @cat.name %>
+     </td>
+     <td> 
+      <%= @cat.birth_date %>
+     </td>
+      <td> 
+        <%= @cat.color %>
+     </td>
+     <td> 
+       <%= @cat.age %>
+     </td>
+     <td> 
+       <%= @cat.sex %>
+     </td>
+   </tr>
+</table>
+
+<table>
+  <th>
+    <td>
+      Start Date
+    </td>
+    <td>
+      End Date
+    </td>
+  </th>
+    <% @cat.cat_rental_requests.each do |cat_rental|  %>
+    <tr>
+      <td>
+      <%= cat_rental.start_date %>
+    </td>
+    <td>
+      <%= cat_rental.end_date %>
+    </td>
+  </tr>
+  <% end %>  
+</table>
+
+<%= link_to "Update cat info", edit_cat_url(@cat) %><br>
+<%= link_to "Back to cat list", cats_url %><br>
+<%= link_to "Create Rental Request", new_cat_rental_request_url %>

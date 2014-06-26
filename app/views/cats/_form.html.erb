@@ -1,0 +1,50 @@
+
+
+<% if @cat.persisted? %>
+  <form action = "<%= cat_url(@cat) %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+<% else %>
+  <form action = "<%= cats_url %>" method="post">
+<% end %>
+
+  <input type = 'hidden' name = "authenticity_token"
+                  value = '<%= form_authenticity_token %>'>
+  <label>
+  Name: <input 
+          type="text" 
+          name = "cat[name]" 
+          placeholder = "Enter cat name"
+          value = "<%= @cat.name %>">
+        </label><br>
+  <label>
+  Age: <input 
+          type="number" 
+          name = "cat[age]"
+          placholder = "enter cat age"
+          value = "<%= @cat.age %>"><br>
+        </label>
+  <label>
+  Birth Date: <input 
+          type="date" 
+          name = "cat[birth_date]"
+          value = "<%= @cat.birth_date %>">
+        </label><br>
+  
+  <label>
+  Color: <select name = "cat[color]">
+           <% Cat::COLORS.each do |color| %>
+           <option value = "<%= color %>"
+             selected = "<%= @cat.color %>">
+             <%= color %>
+           </option>
+           <% end %>
+         </select></label><br>
+ <label>
+  Sex: <input type="radio" name = "cat[sex]" value = "M">Male<br>
+       <input type="radio" name = "cat[sex]" value = "F">Female<br>
+ </label>
+
+  <% button_name = @cat.persisted? ? 'Update Cat' : 'Create Cat' %>
+
+  <input type="submit" value="<%= button_name %>">
+</form>
