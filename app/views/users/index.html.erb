@@ -1,0 +1,14 @@
+<ul>
+<% @users.each do |user| %>
+  <li>
+    <%= link_to user.username, user_url(user) %>
+  </li>
+<% end %>
+<h1><%= link_to "Check cat list", cats_url %></h1>
+  <br>
+
+<%= link_to "Create new user", new_user_url %>
+
+</ul>
+
+<%= %>

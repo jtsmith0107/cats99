@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
+    <h1>Current User <%= current_user.username.to_s unless current_user.nil?%></h1>
     <% if flash[:errors] %>
       <h3>ERROR!</h3>
       <ul>
@@ -21,5 +21,8 @@
 
     <%= yield %>
 
+  
+  <input type="button" value="Log out">
+  <%= link_to "Logout", logout_url %>
   </body>
 </html>

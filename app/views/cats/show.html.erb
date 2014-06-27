@@ -38,6 +38,9 @@
 <table>
   <th>
     <td>
+      Renter
+    </td>
+    <td>
       Start Date
     </td>
     <td>
@@ -46,6 +49,9 @@
   </th>
     <% @cat.cat_rental_requests.each do |cat_rental|  %>
     <tr>
+      <td>
+        <%= cat_rental.requester.username %>
+      </td>
       <td>
       <%= cat_rental.start_date %>
     </td>

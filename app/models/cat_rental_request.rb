@@ -1,8 +1,29 @@
+# == Schema Information
+#
+# Table name: cat_rental_requests
+#
+#  id         :integer          not null, primary key
+#  cat_id     :integer          not null
+#  start_date :date             not null
+#  end_date   :date             not null
+#  status     :string(255)      default("PENDING")
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class CatRentalRequest < ActiveRecord::Base
   belongs_to(
     :cat,
     :class_name => 'Cat'
   )
+  
+  belongs_to(
+  :requester,
+  :class_name => 'User',
+  :foreign_key => :user_id
+  )
+  
+  
   before_validation(on: :status) do
     self.status ||= "PENDING"
   end
